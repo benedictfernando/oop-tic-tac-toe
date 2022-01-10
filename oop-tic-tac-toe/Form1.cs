@@ -81,19 +81,29 @@ namespace oop_tic_tac_toe
 
             if (result != null)
             {
-                if (result == "X")
-                {
-                    result = "Player 1 wins!"; // p1Score++;
-                }
-                else if (result == "O")
-                {
-                    result = "Player 2 wins!"; // p2Score++;
-                }
+                addScore(result);
+                if (result == "X") result = "Player 1 wins!";
+                else if (result == "O") result = "Player 2 wins!";
 
                 if (MessageBox.Show(result) == DialogResult.OK)
                 {
                     // newGame.PerformClick()
                 }
+            }
+        }
+
+        private void addScore(string value)
+        {
+            int score;
+            if (value == "X")
+            {
+                score = int.Parse(p1Score.Text); score++;
+                p1Score.Text = score.ToString("D2");
+            }
+            else if (value == "O")
+            {
+                score = int.Parse(p2Score.Text); score++;
+                p2Score.Text = score.ToString("D2");
             }
         }
 

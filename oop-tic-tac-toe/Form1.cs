@@ -12,7 +12,7 @@ namespace oop_tic_tac_toe
 {
     public partial class tictactoe : Form
     {
-        private bool p1Turn;
+        private bool p1Turn = true;
         private List<Button> cells = new List<Button>();
 
         public tictactoe()
@@ -29,9 +29,6 @@ namespace oop_tic_tac_toe
             cells.Add(this.bl);
             cells.Add(this.b);
             cells.Add(this.br);
-
-            // Start game
-            newGame.PerformClick();
         }
 
         private void newGame_Click(object sender, EventArgs e)
@@ -41,6 +38,18 @@ namespace oop_tic_tac_toe
             {
                 cell.Text = ""; cell.Enabled = true;
             }   
+        }
+
+        private void resetScore_Click(object sender, EventArgs e)
+        {
+            string msg = "You sure to continue?";
+            string ttl = "Reset Score";
+            var btns = MessageBoxButtons.YesNo; 
+            var icn = MessageBoxIcon.Warning;
+            if (MessageBox.Show(msg, ttl, btns, icn) == DialogResult.Yes)
+            {
+                p1Score.Text = p2Score.Text = "00"; newGame.PerformClick();
+            }
         }
 
         private void cell_Click(object sender, EventArgs e)

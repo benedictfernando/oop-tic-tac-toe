@@ -123,6 +123,7 @@
             this.resetScore.TabIndex = 1;
             this.resetScore.Text = "Reset Score";
             this.resetScore.UseVisualStyleBackColor = true;
+            this.resetScore.Click += new System.EventHandler(this.resetScore_Click);
             // 
             // tl
             // 

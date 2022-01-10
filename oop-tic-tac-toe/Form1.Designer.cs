@@ -252,7 +252,7 @@
             // p1
             // 
             this.p1.AutoSize = true;
-            this.p1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.p1.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.p1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.p1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.p1.ForeColor = System.Drawing.SystemColors.ControlLightLight;

@@ -132,8 +132,8 @@
             this.tl.Name = "tl";
             this.tl.Size = new System.Drawing.Size(114, 108);
             this.tl.TabIndex = 0;
-            this.tl.Text = "O";
             this.tl.UseVisualStyleBackColor = true;
+            this.tl.Click += new System.EventHandler(this.cell_Click);
             // 
             // t
             // 
@@ -145,6 +145,7 @@
             this.t.Size = new System.Drawing.Size(114, 108);
             this.t.TabIndex = 1;
             this.t.UseVisualStyleBackColor = true;
+            this.t.Click += new System.EventHandler(this.cell_Click);
             // 
             // tr
             // 
@@ -155,8 +156,8 @@
             this.tr.Name = "tr";
             this.tr.Size = new System.Drawing.Size(114, 108);
             this.tr.TabIndex = 2;
-            this.tr.Text = "O";
             this.tr.UseVisualStyleBackColor = true;
+            this.tr.Click += new System.EventHandler(this.cell_Click);
             // 
             // l
             // 
@@ -167,8 +168,8 @@
             this.l.Name = "l";
             this.l.Size = new System.Drawing.Size(114, 108);
             this.l.TabIndex = 3;
-            this.l.Text = "O";
             this.l.UseVisualStyleBackColor = true;
+            this.l.Click += new System.EventHandler(this.cell_Click);
             // 
             // m
             // 
@@ -179,8 +180,8 @@
             this.m.Name = "m";
             this.m.Size = new System.Drawing.Size(114, 108);
             this.m.TabIndex = 4;
-            this.m.Text = "X";
             this.m.UseVisualStyleBackColor = true;
+            this.m.Click += new System.EventHandler(this.cell_Click);
             // 
             // r
             // 
@@ -192,6 +193,7 @@
             this.r.Size = new System.Drawing.Size(114, 108);
             this.r.TabIndex = 5;
             this.r.UseVisualStyleBackColor = true;
+            this.r.Click += new System.EventHandler(this.cell_Click);
             // 
             // bl
             // 
@@ -202,8 +204,8 @@
             this.bl.Name = "bl";
             this.bl.Size = new System.Drawing.Size(114, 108);
             this.bl.TabIndex = 6;
-            this.bl.Text = "X";
             this.bl.UseVisualStyleBackColor = true;
+            this.bl.Click += new System.EventHandler(this.cell_Click);
             // 
             // b
             // 
@@ -215,6 +217,7 @@
             this.b.Size = new System.Drawing.Size(114, 108);
             this.b.TabIndex = 7;
             this.b.UseVisualStyleBackColor = true;
+            this.b.Click += new System.EventHandler(this.cell_Click);
             // 
             // br
             // 
@@ -226,6 +229,7 @@
             this.br.Size = new System.Drawing.Size(114, 108);
             this.br.TabIndex = 8;
             this.br.UseVisualStyleBackColor = true;
+            this.br.Click += new System.EventHandler(this.cell_Click);
             // 
             // tableLayoutPanel2
             // 

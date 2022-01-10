@@ -17,5 +17,20 @@ namespace oop_tic_tac_toe
             InitializeComponent();
         }
 
+        private bool p1Turn = true;
+
+        private void cell_Click(object sender, EventArgs e)
+        {
+            var button = (sender as Button);
+            if (button.Enabled)
+            {
+                if (p1Turn) button.Text = "X";
+                else button.Text = "O";
+
+                button.Enabled = false;
+                p1Turn = !p1Turn;
+                // checkForWinner();
+            }
+        }
     }
 }

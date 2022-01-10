@@ -42,12 +42,9 @@ namespace oop_tic_tac_toe
 
         private void resetScore_Click(object sender, EventArgs e)
         {
-            string msg = "You sure to continue?";
-            string ttl = "Reset Score";
-            var btns = MessageBoxButtons.YesNo; 
-            var icn = MessageBoxIcon.Warning;
-            if (MessageBox.Show(msg, ttl, btns, icn) == DialogResult.Yes)
-            {
+            if (MessageBox.Show("Accepting will also start a new game." +
+                "Continue?", "Reset Score", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning) == DialogResult.Yes) {
                 p1Score.Text = p2Score.Text = "00"; newGame.PerformClick();
             }
         }
@@ -140,6 +137,21 @@ namespace oop_tic_tac_toe
                 p1.BackColor = SystemColors.ControlDarkDark;
                 p2.BackColor = SystemColors.InactiveCaption;
             }
+        }
+
+        private void tictactoe_Load(object sender, EventArgs e)
+        {
+            MessageBox.Show("Welcome to C#'s Tic-Tac-Toe Game!");
+        }
+
+        private void appClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Are you really sure to exit?",
+                "Exit Program", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Stop) == DialogResult.Yes)
+                MessageBox.Show("Thanks for playing with us~" +
+                    "'til we meet again :)");
+            else e.Cancel = true;
         }
     }
 }

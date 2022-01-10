@@ -331,6 +331,8 @@
             this.Name = "tictactoe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tic-Tac-Toe";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.appClosing);
+            this.Load += new System.EventHandler(this.tictactoe_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

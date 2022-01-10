@@ -29,9 +29,15 @@ namespace oop_tic_tac_toe
             cells.Add(this.bl);
             cells.Add(this.b);
             cells.Add(this.br);
+        }
 
-            // Start game
-            // newGame.PerformClick()
+        private void newGame_Click(object sender, EventArgs e)
+        {
+            p1Turn = true;
+            foreach (var cell in cells)
+            {
+                cell.Text = ""; cell.Enabled = true;
+            }
         }
 
         private void cell_Click(object sender, EventArgs e)
@@ -49,36 +55,39 @@ namespace oop_tic_tac_toe
         }
 
         private void checkForWinner()
-        {
-            bool tie = true;
+        {   
             string result = null;
 
-            // Check for any enabled cells
-            foreach (var cell in cells)
+            // Initialize each cells to its corresponding text variable
+            string l = cells[3].Text, m = cells[4].Text, r = cells[5].Text,
+            tl = cells[0].Text, t = cells[1].Text, tr = cells[2].Text,
+            bl = cells[6].Text, b = cells[7].Text, br = cells[8].Text;
+
+            // For trios with 'middle' button as their common cell
+            if ((tl == m && m == br || t == m && m == b || tr == m && m == bl 
+                || r == m && m == l) && !cells[4].Enabled) result = m;
+
+            // For trios with 'top-left' button as their common cell
+            else if ((tl == t && t == tr || tl == l && l == bl)
+                && !cells[0].Enabled) result = tl;
+
+            // For trios with 'bottom-right' button as their common cell
+            else if ((br == r && r == tr || br == b && b == bl)
+                && !cells[8].Enabled) result = br;
+
+            // For tie situation
+            if (result == null)
             {
-                if (cell.Enabled) { tie = false; break; }
+                // Check for any enabled cells
+                bool tie = true;
+                foreach (var cell in cells)
+                {
+                    if (cell.Enabled) { tie = !tie; break; }
+                }
+                if (tie) result = "Tie!";
             }
 
-            if (tie) result = "Tie!";
-            else    // if result is not 'tie'...
-            {
-                string l = cells[3].Text, m = cells[4].Text, r = cells[5].Text,
-                tl = cells[0].Text, t = cells[1].Text, tr = cells[2].Text,
-                bl = cells[6].Text, b = cells[7].Text, br = cells[8].Text;
-
-                // for trios with 'middle' cell as their common one
-                if ((tl == m && m == br || t == m && m == b || tr == m && m == bl 
-                    || r == m && m == l) && !cells[4].Enabled) result = m;
-
-                // for trios with 'top-left' cell as their common one
-                else if ((tl == t && t == tr || tl == l && l == bl)
-                    && !cells[0].Enabled) result = tl;
-
-                // for trios with 'bottom-right' cell as their common one
-                else if ((br == r && r == tr || br == b && b == bl)
-                    && !cells[8].Enabled) result = br;
-            }
-
+            // For results
             if (result != null)
             {
                 addScore(result);
@@ -86,12 +95,11 @@ namespace oop_tic_tac_toe
                 else if (result == "O") result = "Player 2 wins!";
 
                 if (MessageBox.Show(result) == DialogResult.OK)
-                {
-                    // newGame.PerformClick()
-                }
+                    newGame.PerformClick();
             }
         }
 
+        // Increment current player's score
         private void addScore(string value)
         {
             int score;
@@ -107,6 +115,7 @@ namespace oop_tic_tac_toe
             }
         }
 
+        // Change color in an alternate manner each move
         private void labelChange(object sender, EventArgs e)
         {
             if (p1Turn)

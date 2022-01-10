@@ -111,6 +111,7 @@
             this.newGame.TabIndex = 0;
             this.newGame.Text = "New Game";
             this.newGame.UseVisualStyleBackColor = true;
+            this.newGame.Click += new System.EventHandler(this.newGame_Click);
             // 
             // resetScore
             // 

@@ -32,5 +32,19 @@ namespace oop_tic_tac_toe
                 // checkForWinner();
             }
         }
+
+        private void labelChange(object sender, EventArgs e)
+        {
+            if (p1Turn)
+            {
+                p1.BackColor = SystemColors.ControlDarkDark;
+                p2.BackColor = SystemColors.InactiveCaption;
+            }
+            else
+            {
+                p1.BackColor = SystemColors.InactiveCaption;
+                p2.BackColor = SystemColors.ControlDarkDark;
+            }
+        }
     }
 }

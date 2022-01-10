@@ -12,7 +12,7 @@ namespace oop_tic_tac_toe
 {
     public partial class tictactoe : Form
     {
-        private bool p1Turn = true;
+        private bool p1Turn;
         private List<Button> cells = new List<Button>();
 
         public tictactoe()
@@ -29,6 +29,9 @@ namespace oop_tic_tac_toe
             cells.Add(this.bl);
             cells.Add(this.b);
             cells.Add(this.br);
+
+            // Start game
+            newGame.PerformClick();
         }
 
         private void newGame_Click(object sender, EventArgs e)
@@ -37,7 +40,7 @@ namespace oop_tic_tac_toe
             foreach (var cell in cells)
             {
                 cell.Text = ""; cell.Enabled = true;
-            }
+            }   
         }
 
         private void cell_Click(object sender, EventArgs e)
@@ -48,8 +51,8 @@ namespace oop_tic_tac_toe
                 if (p1Turn) button.Text = "X";
                 else button.Text = "O";
 
-                button.Enabled = false;
                 p1Turn = !p1Turn;
+                button.Enabled = false;
                 checkForWinner();
             }
         }
@@ -120,13 +123,13 @@ namespace oop_tic_tac_toe
         {
             if (p1Turn)
             {
-                p1.BackColor = SystemColors.ControlDarkDark;
-                p2.BackColor = SystemColors.InactiveCaption;
+                p1.BackColor = SystemColors.InactiveCaption;
+                p2.BackColor = SystemColors.ControlDarkDark;
             }
             else
             {
-                p1.BackColor = SystemColors.InactiveCaption;
-                p2.BackColor = SystemColors.ControlDarkDark;
+                p1.BackColor = SystemColors.ControlDarkDark;
+                p2.BackColor = SystemColors.InactiveCaption;
             }
         }
     }
